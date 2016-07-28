@@ -24,21 +24,22 @@ typedef struct _array_list
 {
     array_node *array;
     size_t size;
+    size_t allocated_size;
 } _array_list;
 
 typedef _array_list* array_list;
 
 /**
  * Creates an array list and allocates the necessary memory.
- * 
+ *
  * @param size the initial size of the array list
- * @return reference to an array_list 
+ * @return reference to an array_list
  */
 array_list create_arraylist(size_t size);
 
 /**
  * Retrieves node from an array list
- * 
+ *
  * @param list the list to get the node from
  * @param index position of the node to be retrieved
  * @return copy of retrieved node
@@ -47,7 +48,7 @@ array_node get_node(array_list list, int index);
 
 /**
  * Adds a node to an array list
- * 
+ *
  * @param list the list to add the node to
  * @param node the node to be added
  * @param position the position where the node will be added

@@ -14,11 +14,24 @@ int main(int argc, char const *argv[]) {
     printf("%d\n", get_size(list));
 
     array_node node;
-    node.data = 5;
-    add_node(list, node, 1);
 
-    array_node anothernode = get_node(list, 1);
-    printf("%d\n", anothernode.data);
+    node.data = 5;
+    add_node(list, node, TAIL);
+    printf("%d\n", get_size(list));
+
+    node.data = 6;
+    add_node(list, node, TAIL);
+    printf("%d\n", get_size(list));
+
+    node.data = 10;
+    add_node(list, node, TAIL);
+    printf("%d\n", get_size(list));
+
+    printf("Node at 0: %d\n", get_node(list, 0));
+    printf("Node at 1: %d\n", get_node(list, 1));
+    printf("Node at 2: %d\n", get_node(list, 2));
+    printf("Node at 3: %d\n", get_node(list, 3));
+
 
     return 0;
 }

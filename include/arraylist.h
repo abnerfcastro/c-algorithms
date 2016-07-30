@@ -9,7 +9,7 @@
 #define _STRUCTURES_H
 
 #include <stdio.h>
-#include <stdlib.h>     // malloc
+#include <stdlib.h>     // malloc, realloc
 
 #define HEAD        0x00000000
 #define TAIL        0x7fffffff
@@ -37,6 +37,8 @@ typedef _array_list* array_list;
  */
 array_list create_arraylist(size_t size);
 
+void destroy_arraylist(array_list list);
+
 /**
  * Retrieves node from an array list
  *
@@ -47,11 +49,13 @@ array_list create_arraylist(size_t size);
 array_node get_node(array_list list, int index);
 
 /**
- * Adds a node to an array list
+ * Adds a node to an array list.
+ *      if position is negative, it will be set to HEAD
+ *      if position is larger than the size of list, it will be set to TAIL
  *
  * @param list the list to add the node to
  * @param node the node to be added
- * @param position the position where the node will be added
+ * @param position the position where the node will be added (can be HEAD, TAIL or other signed integer)
  */
 void add_node(array_list list, array_node node, int position);
 

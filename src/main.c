@@ -15,76 +15,84 @@ int main(int argc, char const *argv[]) {
 
     array_node node;
 
-    node.data = 5;
-    add_node(list, node, HEAD);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+    // node.data = 5;
+    // add_node(list, node, HEAD);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
 
-    node.data = 6;
-    add_node(list, node, HEAD);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+    // node.data = 6;
+    // add_node(list, node, HEAD);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // node.data = 10;
+    // add_node(list, node, HEAD);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // node.data = 20;
+    // add_node(list, node, HEAD);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // node.data = 15;
+    // add_node(list, node, TAIL);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // node.data = 12;
+    // add_node(list, node, TAIL);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // node.data = 13;
+    // add_node(list, node, HEAD);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // node.data = 9;
+    // add_node(list, node, HEAD);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // node.data = 17;
+    // add_node(list, node, 1);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // node.data = 60;
+    // add_node(list, node, 2);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // node.data = 100;
+    // add_node(list, node, -10);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // node.data = 1000;
+    // add_node(list, node, 2000);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // node.data = 1230;
+    // add_node(list, node, 10);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // for (size_t i = 0; i < list->allocated_size; i++) {
+    //     printf("Node at %d: %d\n", i, get_node(list, i));
+    // }
+
+    // remove_node(list, HEAD);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // remove_node(list, TAIL);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // remove_node(list, 5);
+    // printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+
+    // for (size_t i = 0; i < list->allocated_size; i++) {
+    //     printf("Node at %d: %d\n", i, get_node(list, i));
+    // }
 
     node.data = 10;
-    add_node(list, node, HEAD);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    node.data = 20;
-    add_node(list, node, HEAD);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    node.data = 15;
-    add_node(list, node, TAIL);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    node.data = 12;
-    add_node(list, node, TAIL);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    node.data = 13;
-    add_node(list, node, HEAD);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    node.data = 9;
-    add_node(list, node, HEAD);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    node.data = 17;
-    add_node(list, node, 1);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    node.data = 60;
-    add_node(list, node, 2);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    node.data = 100;
-    add_node(list, node, -10);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    node.data = 1000;
-    add_node(list, node, 2000);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    node.data = 1230;
-    add_node(list, node, 10);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    for (size_t i = 0; i < list->allocated_size; i++) {
-        printf("Node at %d: %d\n", i, get_node(list, i));
+    for (int i = 0; i < 1000000; i++)
+    {
+        add_node(list, node, TAIL);
     }
 
-    remove_node(list, HEAD);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
+    printf("Size: %d :: Allocated Size: %d\n", list->size, list->allocated_size);
 
-    remove_node(list, TAIL);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    remove_node(list, 5);
-    printf("Size: %d :: Allocated Size: %d\n", get_size(list), list->allocated_size);
-
-    for (size_t i = 0; i < list->allocated_size; i++) {
-        printf("Node at %d: %d\n", i, get_node(list, i));
-    }
-
-    destroy_arraylist(list);
+    // destroy_arraylist(list);
 
     return 0;
 }

@@ -1,5 +1,6 @@
 #include "../include/sorting.h"
 #include "../include/arraylist.h"
+#include "../include/strings.h"
 
 #define ARRAY_SIZE 5
 
@@ -84,15 +85,18 @@ int main(int argc, char const *argv[]) {
     //     printf("Node at %d: %d\n", i, get_node(list, i));
     // }
 
-    node.data = 10;
-    for (int i = 0; i < 1000000; i++)
-    {
-        add_node(list, node, TAIL);
-    }
+    // node.data = 10;
+    // for (int i = 0; i < 1000000; i++)
+    // {
+    //     add_node(list, node, TAIL);
+    // }
 
-    printf("Size: %d :: Allocated Size: %d\n", list->size, list->allocated_size);
+    // printf("Size: %d :: Allocated Size: %d\n", list->size, list->allocated_size);
 
     // destroy_arraylist(list);
+
+    string str = parse_integer(4000);
+    printf("%s\n", str);
 
     return 0;
 }

@@ -5,11 +5,12 @@
  *      Include file for Array List data structure
  ****************************************************/
 
-#ifndef _STRUCTURES_H
-#define _STRUCTURES_H
+#ifndef _ARRAYLIST_H
+#define _ARRAYLIST_H
 
 #include <stdio.h>
 #include <stdlib.h>     // malloc, realloc
+#include <string.h>     // memcpy
 
 #define HEAD        0x00000000
 #define TAIL        0x7fffffff

@@ -128,23 +128,27 @@ void test_linked_lists()
 
         list_node node;
         node.data = p;
-        ll_add_node(list, node);
+        ll_add_node(list, node, 0);
     }
 
     print_linkedlist(list, "\n", print_ll_node);
+    printf("\n\n");
     
-    // point p1;
-    // p1.x = 10;
-    // p1.y = 15;
+    point p1;
+    p1.x = 10;
+    p1.y = 15;
 
     // point p2;
     // p2.x = 20;
     // p2.y = 40;
     
-    // list_node node;    
+    list_node node;    
     
-    // node.data = &p1;
-    // ll_add_node(list, node);
+    node.data = &p1;
+    ll_add_node(list, node, 3);
+    ll_add_node(list, node, 10);
+
+    print_linkedlist(list, "\n", print_ll_node);
 
     // node.data = &p2;
     // ll_add_node(list, node);

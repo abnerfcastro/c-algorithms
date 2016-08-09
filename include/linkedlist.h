@@ -24,7 +24,7 @@ typedef _linked_list* linked_list;
 linked_list create_linkedlist();
 
 // Experimental function: only adds at tail
-void ll_add_node(linked_list list, list_node node);
+void ll_add_node(linked_list list, list_node node, int position);
 
 list_node ll_get_node(linked_list list, int position);
 

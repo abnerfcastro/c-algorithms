@@ -10,21 +10,49 @@ linked_list create_linkedlist()
     return list;
 }
 
-void ll_add_node(linked_list list, list_node node)
+void ll_add_node(linked_list list, list_node node, int position)
 {
+    // Allocate memory for new node
     list_node *new_node = malloc(sizeof(node));
-    new_node->data = node.data;
+    if (new_node == NULL)
+        return;
     
-    if (!list->head)
+    new_node->data = node.data;
+
+    // If list is empty
+    if (list->head == NULL)
     {        
         list->head = new_node;
         list->head->next = NULL;
     }
     else
-    {        
-        list_node *tmp_node = list->head;
-        list->head = new_node;        
-        list->head->next = tmp_node; 
+    {
+        list_node *conductor = list->head;        
+        
+        // Insert at head of the list
+        if (position <= 0)
+        {
+            list_node *tmp = conductor;
+            conductor = new_node;
+            conductor->next = tmp;
+            list->head = conductor;
+        }
+        else
+        {
+            int counter = 0;
+            while ((conductor->next != NULL))
+            {
+                if (counter == position - 1)
+                    break;
+                
+                conductor = conductor->next;
+                counter++;
+            }
+
+            list_node *tmp = conductor->next;
+            conductor->next = new_node;
+            new_node->next = tmp;
+        }                
     }
 
     list->size++;

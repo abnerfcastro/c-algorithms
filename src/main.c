@@ -145,8 +145,8 @@ void test_linked_lists()
     list_node node;    
     
     node.data = &p1;
-    ll_add_node(list, node, 3);
-    ll_add_node(list, node, 10);
+    // ll_add_node(list, node, 3);
+    // ll_add_node(list, node, 10);
 
     print_linkedlist(list, "\n", print_ll_node);
 

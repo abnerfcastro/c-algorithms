@@ -1,6 +1,11 @@
 
 #include "../include/linkedlist.h"
 
+bool is_empty(linked_list list);
+void ll_insert_at_head(linked_list list, list_node *new_node);
+void ll_insert_at_tail(linked_list list, list_node *new_node);
+void ll_insert_anywhere(linked_list list, list_node *new_node, int position);
+
 linked_list create_linkedlist()
 {
     printf("Creating linked list.\n");
@@ -14,48 +19,77 @@ void ll_add_node(linked_list list, list_node node, int position)
 {
     // Allocate memory for new node
     list_node *new_node = malloc(sizeof(node));
-    if (new_node == NULL)
+    if (is_null(new_node))
         return;
     
     new_node->data = node.data;
 
     // If list is empty
-    if (list->head == NULL)
+    if (is_empty(list))
     {        
-        list->head = new_node;
-        list->head->next = NULL;
+        new_node->next = NULL;
+        list->head = new_node;        
     }
     else
     {
-        list_node *conductor = list->head;        
+        // list_node *conductor = list->head;        
         
         // Insert at head of the list
         if (position <= 0)
         {
-            list_node *tmp = conductor;
-            conductor = new_node;
-            conductor->next = tmp;
-            list->head = conductor;
+            ll_insert_at_head(list, new_node);            
         }
         else
         {
-            int counter = 0;
-            while ((conductor->next != NULL))
+            if (position >= list->size)
             {
-                if (counter == position - 1)
-                    break;
-                
-                conductor = conductor->next;
-                counter++;
+                ll_insert_at_tail(list, new_node);
             }
+            else
+            {
+                // Insert anywhere
+                ll_insert_anywhere(list, new_node, position);
+            }                
+            
+            // int counter = 0;
+            // while ((conductor->next != NULL))
+            // {
+            //     if (counter == position - 1)
+            //         break;
+                
+            //     conductor = conductor->next;
+            //     counter++;
+            // }
 
-            list_node *tmp = conductor->next;
-            conductor->next = new_node;
-            new_node->next = tmp;
+            // list_node *tmp = conductor->next;
+            // conductor->next = new_node;
+            // new_node->next = tmp;
         }                
     }
 
     list->size++;
+}
+
+bool is_empty(linked_list list)
+{
+    return (list->head == NULL);
+}
+
+void ll_insert_at_head(linked_list list, list_node *new_node)
+{
+    list_node *tmp = list->head;
+    new_node->next = tmp;
+    list->head = new_node;
+}
+
+void ll_insert_at_tail(linked_list list, list_node *new_node)
+{
+
+}
+
+void ll_insert_anywhere(linked_list list, list_node *new_node, int position)
+{
+
 }
 
 list_node ll_get_node(linked_list list, int position)

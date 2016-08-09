@@ -1,9 +1,7 @@
 #ifndef _SORTING_H
 #define _SORTING_H
 
-typedef char bool;
-#define true 1
-#define false 0
+#include "../include/utils.h"
 
 typedef unsigned int size_t;
 

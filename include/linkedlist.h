@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "../include/utils.h"
 #include "../include/strings.h"
 
 typedef struct _ll_node

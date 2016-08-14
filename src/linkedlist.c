@@ -2,20 +2,22 @@
 #include "../include/linkedlist.h"
 
 bool is_empty(linked_list list);
-void ll_insert_at_head(linked_list list, list_node *new_node);
-void ll_insert_at_tail(linked_list list, list_node *new_node);
-void ll_insert_anywhere(linked_list list, list_node *new_node, int position);
+void ll_insert_at_head(linked_list *list, list_node *new_node);
+void ll_insert_at_tail(linked_list *list, list_node *new_node);
+void ll_insert_anywhere(linked_list *list, list_node *new_node, int position);
+list_node* ll_get_node_reference(linked_list list, int position);
 
 linked_list create_linkedlist()
 {
     printf("Creating linked list.\n");
     linked_list list = malloc(sizeof(linked_list));
     list->head = NULL;
+    // list->tail = NULL;
     list->size = 0;
     return list;
 }
 
-void ll_add_node(linked_list list, list_node node, int position)
+void ll_add_node(linked_list *list, list_node node, int position)
 {
     // Allocate memory for new node
     list_node *new_node = malloc(sizeof(node));
@@ -25,15 +27,14 @@ void ll_add_node(linked_list list, list_node node, int position)
     new_node->data = node.data;
 
     // If list is empty
-    if (is_empty(list))
+    if (is_empty(*list))
     {        
         new_node->next = NULL;
-        list->head = new_node;        
+        (*list)->head = new_node;
+        // (*list)->tail = new_node;
     }
     else
     {
-        // list_node *conductor = list->head;        
-        
         // Insert at head of the list
         if (position <= 0)
         {
@@ -41,8 +42,9 @@ void ll_add_node(linked_list list, list_node node, int position)
         }
         else
         {
-            if (position >= list->size)
+            if (position >= (*list)->size)
             {
+                // Insert at tail
                 ll_insert_at_tail(list, new_node);
             }
             else
@@ -50,24 +52,10 @@ void ll_add_node(linked_list list, list_node node, int position)
                 // Insert anywhere
                 ll_insert_anywhere(list, new_node, position);
             }                
-            
-            // int counter = 0;
-            // while ((conductor->next != NULL))
-            // {
-            //     if (counter == position - 1)
-            //         break;
-                
-            //     conductor = conductor->next;
-            //     counter++;
-            // }
-
-            // list_node *tmp = conductor->next;
-            // conductor->next = new_node;
-            // new_node->next = tmp;
         }                
     }
 
-    list->size++;
+    (*list)->size++;
 }
 
 bool is_empty(linked_list list)
@@ -75,25 +63,31 @@ bool is_empty(linked_list list)
     return (list->head == NULL);
 }
 
-void ll_insert_at_head(linked_list list, list_node *new_node)
+void ll_insert_at_head(linked_list *list, list_node *new_node)
 {
-    list_node *tmp = list->head;
+    list_node *tmp = (*list)->head;
     new_node->next = tmp;
-    list->head = new_node;
+    (*list)->head = new_node;
 }
 
-void ll_insert_at_tail(linked_list list, list_node *new_node)
-{
-
-}
-
-void ll_insert_anywhere(linked_list list, list_node *new_node, int position)
-{
-
-}
-
-list_node ll_get_node(linked_list list, int position)
+void ll_insert_at_tail(linked_list *list, list_node *new_node)
 {    
+    int tail_position = (*list)->size - 1;
+    list_node *tail = ll_get_node_reference(*list, tail_position);
+    tail->next = new_node;
+    new_node->next = NULL;
+    // new_node->next = NULL;
+    // (*list)->tail->next = new_node;
+    // (*list)->tail = new_node;
+}
+
+void ll_insert_anywhere(linked_list *list, list_node *new_node, int position)
+{
+
+}
+
+list_node* ll_get_node_reference(linked_list list, int position)
+{
     list_node *tmp = list->head;
     int index = 0;
     while (tmp && (index != position))
@@ -102,7 +96,13 @@ list_node ll_get_node(linked_list list, int position)
         index++;        
     }
 
-    return *tmp;
+    return tmp;
+}
+
+list_node ll_get_node(linked_list list, int position)
+{    
+    list_node *tmp = ll_get_node_reference(list, position);
+    return *(tmp);
 }
 
 void print_linkedlist(linked_list list, string separator, string (*to_string_function)(list_node node))

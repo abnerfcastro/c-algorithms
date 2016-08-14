@@ -3,5 +3,5 @@
 
 bool is_null(void *pointer)
 {
-    return (pointer == NULL);
+    return (pointer == NULL);    
 }

@@ -118,7 +118,7 @@ string print_ll_node(list_node node)
 
 void test_linked_lists()
 {
-    linked_list list = create_linkedlist();
+    linked_list list = create_linkedlist();    
 
     for (int i = 0; i < 5; i++)
     {
@@ -128,7 +128,7 @@ void test_linked_lists()
 
         list_node node;
         node.data = p;
-        ll_add_node(list, node, 0);
+        ll_add_node(&list, node, 0);
     }
 
     print_linkedlist(list, "\n", print_ll_node);
@@ -145,8 +145,8 @@ void test_linked_lists()
     list_node node;    
     
     node.data = &p1;
-    // ll_add_node(list, node, 3);
-    // ll_add_node(list, node, 10);
+    ll_add_node(&list, node, 50);
+    ll_add_node(&list, node, 20);
 
     print_linkedlist(list, "\n", print_ll_node);
 

@@ -16,8 +16,8 @@ typedef struct _ll_node
 typedef struct _linked_list
 {
     list_node *head;
+    // list_node *tail;
     int size;
-
 } _linked_list;
 
 typedef _linked_list* linked_list;
@@ -25,7 +25,7 @@ typedef _linked_list* linked_list;
 linked_list create_linkedlist();
 
 // Experimental function: only adds at tail
-void ll_add_node(linked_list list, list_node node, int position);
+void ll_add_node(linked_list *list, list_node node, int position);
 
 list_node ll_get_node(linked_list list, int position);
 

@@ -167,19 +167,24 @@ void move_array_down(array_list list, int position)
 
 array_node get_node(array_list list, int index)
 {
-    if (index >= 0 && index < list->size)
-    {
-        return list->array[index];
-    }
-    else
-    {
-        array_node error_node;
-        error_node.data = ERROR_CODE;
-        return error_node;
-    }
+    if (index < 0)
+        index = 0;
+    else if (index >= list->size)
+        index = list->size - 1;
+    
+    return list->array[index];    
 }
 
 size_t get_size(array_list list)
 {
     return list->size;
+}
+
+void print_arraylist(array_list list, string separator, string (*to_string_function)(array_node node))
+{
+    for (int i = 0; i < list->size; i++)
+    {
+        array_node node = get_node(list, i);
+        printf("%s%s", to_string_function(node), separator);
+    }
 }

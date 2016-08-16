@@ -1,0 +1,10 @@
+John 40
+Oliver 56
+Bruce 34
+Jack 65
+Olivia 19
+Susie 23
+Simone 30
+Monica 27
+Joana 21
+Ana 18

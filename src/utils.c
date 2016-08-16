@@ -1,3 +1,9 @@
+/****************************************************
+ * Author: Abner Castro
+ * Date: August 10th, 2016
+ * Description:
+ *      Implementation file for Utils
+ ****************************************************/
 
 #include "../include/utils.h"
 

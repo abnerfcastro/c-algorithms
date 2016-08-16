@@ -1,3 +1,10 @@
+/****************************************************
+ * Author: Abner Castro
+ * Date: August 6th, 2016
+ * Description:
+ *      Include file for String type and utilities
+ ****************************************************/
+
 #ifndef _STRINGS_H
 #define _STRINGS_H
 

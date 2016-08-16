@@ -13,9 +13,8 @@
 #include <string.h>     // memcpy
 
 #include "../include/strings.h"
+#include "../include/utils.h"
 
-#define HEAD        0x00000000
-#define TAIL        0x7fffffff
 
 // Node definition
 typedef struct arraylist_node

@@ -1,6 +1,6 @@
 TARGET = c-algorithms
 
-CC = gcc
+CC = gcc -g
 CFLAGS = -Wall -std=c99
 
 LINKER = gcc -o
